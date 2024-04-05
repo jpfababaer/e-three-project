@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "simple_calendar"
+gem "ice_cube"
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
@@ -80,7 +83,6 @@ gem "dotenv-rails"
 gem "faker"
 gem "htmlbeautifier"
 gem "http"
-gem "sqlite3", "~> 1.4"
 gem "table_print"
 
 group :development do

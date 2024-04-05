@@ -1,0 +1,47 @@
+<%= form_with(model: schedule) do |form| %>
+  <% if schedule.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+
+      <ul>
+        <% schedule.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.hidden_field :trainer_id, value: current_user.id, style: "display: block" %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :duration, value: 60, style: "display: block" %>
+  </div>
+
+  <div>
+    <%= form.label :day_of_week, style: "display: block" %>
+    <%= form.select :day_of_week, options_for_select((0..6).map { |n| [Date::DAYNAMES[n], Date::DAYNAMES[n]]}) %>
+  </div>
+
+  <div>
+    <%= form.label :start_time, style: "display: block" %>
+    <%= form.hidden_field :start_time, value: Time.new(Date.today.year, Date.today.month, Date.today.day, 7,0,0)%>
+  </div>
+  <div>
+    <%=  Time.new(Date.today.year, Date.today.month, Date.today.day, 7,0,0).strftime("%I:%M %p")%>
+  </div>
+
+  <div>
+    <%= form.label :end_time, style: "display: block" %>
+    <%= form.hidden_field :end_time, value: Time.new(Date.today.year, Date.today.month, Date.today.day, 18,0,0)%>
+  </div>
+
+  <div>
+    <%=  Time.new(Date.today.year, Date.today.month, Date.today.day, 18,0,0).strftime("%I:%M %p")%>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,16 @@
+<div id="<%= dom_id schedule %>">
+  <p>
+    <strong>Availability:</strong>
+    <%= schedule.day_of_week %>
+  </p>
+
+  <p>
+    <strong>Start time:</strong>
+    <%= schedule.start_time.strftime('%I:%M %p') %>
+  </p>
+
+  <p>
+    <strong>End time:</strong>
+    <%= schedule.end_time.strftime('%I:%M %p') %>
+  </p>
+</div>
