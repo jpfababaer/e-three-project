@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_04_05_074715) do
+ActiveRecord::Schema[7.0].define(version: 2024_04_05_075708) do
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "started_at", null: false
+    t.datetime "ended_at", null: false
+    t.integer "client_id", null: false
+    t.integer "trainer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_bookings_on_client_id"
+    t.index ["trainer_id"], name: "index_bookings_on_trainer_id"
+  end
+
   create_table "schedules", force: :cascade do |t|
     t.string "day_of_week", null: false
     t.datetime "start_time", null: false
@@ -42,5 +53,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_04_05_074715) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "bookings", "users", column: "client_id"
+  add_foreign_key "bookings", "users", column: "trainer_id"
   add_foreign_key "schedules", "users", column: "trainer_id"
 end
