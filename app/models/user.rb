@@ -29,4 +29,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :trainer_schedules, class_name: "Schedule", foreign_key: "trainer_id" 
+  has_many :training_sessions, class_name: "Booking", foreign_key: "client_id"   
+  has_many :booked_appointments, class_name: "Booking", foreign_key: "trainer_id" 
+        
+  enum role: { clients: 0, personal_trainers: 1 } 
 end
