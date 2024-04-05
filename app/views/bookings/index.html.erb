@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<div class="container mt-5 text-center">
+  <h1>Calendar: </h1>
+  <%= month_calendar(events: @bookings, attribute: :started_at) do |date, booking| %>
+    <div class="day">
+      <% if date >= Date.today %>
+        <%= link_to date.day, new_booking_path(date: date) %>
+      <% else %>
+        <%= date.day %>
+      <% end %>
+    </div>
 
-<h1>Bookings</h1>
-
-<div id="bookings">
-  <% @bookings.each do |booking| %>
-    <%= render booking %>
-    <p>
-      <%= link_to "Show this booking", booking %>
-    </p>
+    <% booking.each do |booking| %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">
+            <%= link_to booking.trainer.image, booking %>
+          </h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">
+            with <%= booking.trainer.first_name %>
+          </h6>
+          <p class="card-text">Start time: <%= booking.started_at.strftime("%I:%M %p") %></p>
+          <p class="card-text">End time: <%= booking.ended_at.strftime("%I:%M %p") %></p>
+        </div>
+      </div>
+    <% end %>
   <% end %>
-</div>
-
-<%= link_to "New booking", new_booking_path %>

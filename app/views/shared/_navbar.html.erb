@@ -27,7 +27,7 @@
         <li class="nav-item">
           <%= link_to edit_user_registration_path, class: "nav-link" do %>
             <i class="fa-solid fa-circle-user"></i>
-            Your profile
+            <%= current_user.first_name %> (<%= current_user.role == "clients" ? "Client" : "Trainer" %>)
           <% end %>
         </li>
         <li class="nav-item">

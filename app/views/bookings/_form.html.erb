@@ -2,7 +2,6 @@
   <% if booking.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-
       <ul>
         <% booking.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,23 +11,31 @@
   <% end %>
 
   <div>
-    <%= form.label :started_at, style: "display: block" %>
-    <%= form.datetime_field :started_at %>
+    <p>You are booking for <%= @date.strftime("%B %d, %Y") %></p>
   </div>
 
   <div>
-    <%= form.label :ended_at, style: "display: block" %>
-    <%= form.datetime_field :ended_at %>
-  </div>
-
-  <div>
-    <%= form.label :client_id, style: "display: block" %>
-    <%= form.text_field :client_id %>
+    <%= form.hidden_field :client_id, value: current_user.id %>
   </div>
 
   <div>
     <%= form.label :trainer_id, style: "display: block" %>
-    <%= form.text_field :trainer_id %>
+    <%= form.select :trainer_id, options_for_select(@trainers_array.map { |trainer| [trainer.first_name, trainer.id] }) %>
+  </div>
+
+  <div>
+    <%= form.label :started_at, "Start Time Slot", style: "display: block" %>
+    <%= form.select :started_at, options_for_select(
+      @hourly_slots.map do |slot| [
+        "#{slot[:start_time].strftime("%I:%M %p")}", 
+        slot[:start_time]
+        ]
+        end
+        ) %>
+  </div>
+
+  <div>
+    <%= form.hidden_field :ended_at, value: @date %>
   </div>
 
   <div>
