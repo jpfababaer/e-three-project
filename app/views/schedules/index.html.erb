@@ -1,14 +1,16 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Schedules</h1>
-
 <div id="schedules">
-  <% @schedules.each do |schedule| %>
+  <h1>My Schedule: </h1>
+
+  <div>
+    <%= link_to "Create Schedule", new_schedule_path, class: "btn btn-warning" %>
+  </div>
+
+  <hr>
+  <% current_user.trainer_schedules.each do |schedule| %>
     <%= render schedule %>
     <p>
       <%= link_to "Show this schedule", schedule %>
     </p>
+    <hr>
   <% end %>
 </div>
-
-<%= link_to "New schedule", new_schedule_path %>
