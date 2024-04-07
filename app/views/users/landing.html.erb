@@ -1,0 +1,118 @@
+<body class="landing">
+  <header class="header">
+    <h1>
+      3E Fitness
+    </h1>
+    <nav>
+      <ul class="main-nav-list">
+        <li><%= link_to 'Sign In', new_user_session_path, class: "main-nav-link" %></li>
+        <li><%= link_to 'Sign Up', new_user_registration_path, class: "main-nav-link nav-cta" %></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-hero">
+      <div class="hero">
+        <div>
+          <h1 class="heading-primary">
+            Elevate your fitness experience with 3E Fitness
+          </h1>
+          <p class="hero-description">
+            Streamline your fitness journey with our scheduling app, effortlessly booking personal training sessions with our esteemed team members in just a few clicks, optimizing your time and enhancing your experience.
+          </p>
+          <%= link_to 'Start training now!', new_user_registration_path, class: "main-nav-link nav-cta margin-right-sm" %>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-trainers">
+      <div class="container center-text">
+        <span class="subheading">Fitness Staff</span>
+        <h2 class="heading-secondary">
+          Meet our elite group of trainers!
+        </h2>
+      </div>
+
+      <div class="container grid grid--3-cols margin-bottom-md">
+        <div class="trainer">
+          <div class="trainer-content">
+            <div class="trainer-tags">
+              <span class="tag tag--trainer">Level 1 Trainer</span>
+            </div>
+            <p class="trainer-name">Sophia Johnson</p>
+            <ul class="trainer-certs">
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>NASM</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>NSCA</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-star" style="color: #54865c"></i>
+                <span><strong>4.9</strong> rating (537)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trainer">
+          <div class="trainer-content">
+            <div class="trainer-tags">
+              <span class="tag tag--trainer">Level 3 Trainer</span>
+            </div>
+            <p class="trainer-name">Emily Claire</p>
+            <ul class="trainer-certs">
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>NASM</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>ACSM</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-star" style="color: #54865c"></i>
+                <span><strong>4.7</strong> rating (537)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="trainer">
+          <div class="trainer-content">
+            <div class="trainer-tags">
+              <span class="tag tag--trainer">Level 3 Trainer</span>
+            </div>
+            <p class="trainer-name">Liam Smith</p>
+            <ul class="trainer-certs">
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>NASM</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-certificate" style="color: #54865c"></i>
+                <span><strong>ISSA</strong> certified</span>
+              </li>
+              <li class="trainer-attribute">
+                <i class="fa-solid fa-star" style="color: #54865c"></i>
+                <span><strong>4.9</strong> rating (537)</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--sign-up">
+      <div class="section-title">
+        <h3 class="section-header">
+          Effortless, efficient - exercise. Take control of your fitness now.
+        </h3>
+      </div>
+      <%= link_to 'Claim your first training session!', new_user_registration_path, class: "main-nav-link nav-cta" %>
+    </section>
+  </main>
+</body>

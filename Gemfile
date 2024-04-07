@@ -90,6 +90,7 @@ group :development do
   gem "better_errors"
   gem "binding_of_caller"
   gem "draft_generators"
+  gem 'sqlite3'
   gem "grade_runner"
   gem "pry-rails"
   gem "rails_db"
