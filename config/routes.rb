@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root "users#landing"
+  root "homes#landing"
 
   resources :bookings
   resources :schedules
