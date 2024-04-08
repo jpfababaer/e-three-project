@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
+  before_action :availabilities, only: %i[ new ]
 
   # GET /schedules or /schedules.json
   def index
@@ -13,6 +14,7 @@ class SchedulesController < ApplicationController
   # GET /schedules/new
   def new
     @schedule = Schedule.new
+    @availabilities = availabilities
   end
 
   # GET /schedules/1/edit
@@ -67,5 +69,15 @@ class SchedulesController < ApplicationController
   # Only allow a list of trusted parameters through.
   def schedule_params
     params.require(:schedule).permit(:trainer_id, :start_time, :end_time, :day_of_week, :duration)
+  end
+
+  def availabilities
+    opening_hour = 5
+    closing_hour = 21
+    options = []
+    (opening_hour..closing_hour).each do |hour|
+      date_time = DateTime.new(Date.today.year, Date.today.month, Date.today.day, hour,0,0)
+      options << [date_time.strftime("%l:%M %p"), date_time]
+    end
   end
 end
