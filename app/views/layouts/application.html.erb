@@ -5,25 +5,26 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <%= render "shared/cdn_assets" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "general", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-
+    <% if notice.present? %>
+      <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>
+    <% end %>
+    <% if alert.present? %>
+      <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
+    <% end %>
     <%= render "shared/navbar" %>
-
-    <div class="container">
-      <% if notice.present? %>
-        <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>
-      <% end %>
-      <% if alert.present? %>
-        <%= render partial: "shared/flash", locals: { message: alert, css_class: "danger" } %>
-      <% end %>
-      
-      <%= yield %>
-    </div>
-
+    <%= yield %>
   </body>
-</html>
+ </html>
