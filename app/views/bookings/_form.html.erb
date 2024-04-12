@@ -1,44 +1,51 @@
-<%= form_with(model: booking) do |form| %>
-  <% if booking.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
-      <ul>
-        <% booking.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: booking, method: "post", id: "booking-form") do |form| %>
+  <%= form.hidden_field :client_id, value: current_user.id %>
+  <%= form.hidden_field :ended_at, value: @date %>
   <div>
-    <p>You are booking for <%= @date.strftime("%B %d, %Y") %></p>
+    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, id: "trainer-select" %>
   </div>
-
   <div>
-    <%= form.hidden_field :client_id, value: current_user.id %>
+
+    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, id: "start-time-select" %>
   </div>
-
   <div>
-    <%= form.label :trainer_id, style: "display: block" %>
-    <%= form.select :trainer_id, options_for_select(@trainers_array.map { |trainer| [trainer.first_name, trainer.id] }) %>
-  </div>
-
-  <div>
-    <%= form.label :started_at, "Start Time Slot", style: "display: block" %>
-    <%= form.select :started_at, options_for_select(
-      @hourly_slots.map do |slot| [
-        "#{slot[:start_time].strftime("%I:%M %p")}", 
-        slot[:start_time]
-        ]
-        end
-        ) %>
-  </div>
-
-  <div>
-    <%= form.hidden_field :ended_at, value: @date %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Submit" %>
   </div>
 <% end %>
+
+<hr>
+
+<script>
+  var hourlySlots = <%= raw @hourly_slots.to_json %>;
+
+  function populateTimeSlots() {
+    const trainerSelect = document.getElementById("trainer-select").value;
+    const timeSlots = document.getElementById("start-time-select");
+
+    const filteredData = hourlySlots.filter(function(hash) {
+      return hash.trainer_id.toString() === trainerSelect;
+    })
+
+    const options = filteredData.map(function(hash) {
+        const startedAt = new Date(hash.started_at);
+        const hoursUTC = startedAt.getUTCHours();
+        const minutesUTC = startedAt.getUTCMinutes();
+        const period = hoursUTC < 12 ? 'AM' : 'PM';
+        const formattedTime = (hoursUTC % 12 || 12).toString().padStart(2, '0') + ':' + minutesUTC.toString().padStart(2, '0') + ' ' + period;
+        return formattedTime;
+    })
+
+    timeSlots.innerHTML = "";
+
+    const prompt = new Option("Select Start Time", "");
+    timeSlots.add(prompt);
+
+    options.forEach(optionText => {
+      const option = new Option(optionText, optionText);
+      timeSlots.add(option);
+    });
+  }
+
+  document.getElementById("trainer-select").addEventListener("change", populateTimeSlots);
+  populateTimeSlots();
+</script>

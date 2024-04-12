@@ -74,21 +74,23 @@ class BookingsController < ApplicationController
 
   def trainer_slots
     @date = DateTime.parse(params[:date])
-    trainer_ids = Schedule.where(day_of_week: @date.strftime("%A")).pluck(:trainer_id).uniq
-    @trainers_array = User.where(id: trainer_ids)
+    # trainer_ids = Schedule.where(day_of_week: @date.strftime("%A")).pluck(:trainer_id).uniq
+    @trainers_array = User.personal_trainers.joins(:trainer_schedules).where(schedules: { day_of_week: @date.strftime("%A") }).uniq #Array of trainer instances
 
+    #Hashes within an Array to store each trainer's available slots: [ {Trainer 1 slots}, {Trainer 2}, etc. ]
+    @hourly_slots = []
+
+    #Access trainer schedule for the specific day:
     @trainers_array.each do |trainer|
-      schedule = Schedule.where(day_of_week: @date.strftime("%A"))[0]
+      schedule = trainer.trainer_schedules.find_by(day_of_week: @date.strftime("%A"))
+      next unless schedule
       start_time = DateTime.new(@date.year, @date.month, @date.day, schedule.start_time.hour, schedule.start_time.min, schedule.start_time.sec)
       end_time = DateTime.new(@date.year, @date.month, @date.day, schedule.end_time.hour, schedule.end_time.min, schedule.end_time.sec)
 
-      @hourly_slots = [] #Throws an error when User selects a date with no trainer availabilities.
-
       current_time = start_time
-
       while current_time < end_time
         next_hour_time = current_time + 1.hour
-        @hourly_slots << { start_time: current_time, end_time: next_hour_time }
+        @hourly_slots << { "trainer_id" => trainer.id, "started_at" => current_time, "ended_at" => next_hour_time }
         current_time = next_hour_time
       end
     end

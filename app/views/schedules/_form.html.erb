@@ -26,19 +26,12 @@
 
   <div>
     <%= form.label :start_time, style: "display: block" %>
-    <%= form.hidden_field :start_time, value: Time.new(Date.today.year, Date.today.month, Date.today.day, 7,0,0)%>
-  </div>
-  <div>
-    <%=  Time.new(Date.today.year, Date.today.month, Date.today.day, 7,0,0).strftime("%I:%M %p")%>
+    <%= form.select :start_time, options_for_select(availabilities)%>
   </div>
 
   <div>
     <%= form.label :end_time, style: "display: block" %>
-    <%= form.hidden_field :end_time, value: Time.new(Date.today.year, Date.today.month, Date.today.day, 18,0,0)%>
-  </div>
-
-  <div>
-    <%=  Time.new(Date.today.year, Date.today.month, Date.today.day, 18,0,0).strftime("%I:%M %p")%>
+    <%= form.select :end_time, options_for_select(availabilities)%>
   </div>
 
   <div>
