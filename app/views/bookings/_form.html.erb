@@ -20,7 +20,12 @@
     })
 
     const options = filteredData.map(function(hash) {
-      return hash.started_at;
+        const startedAt = new Date(hash.started_at);
+        const hoursUTC = startedAt.getUTCHours();
+        const minutesUTC = startedAt.getUTCMinutes();
+        const period = hoursUTC < 12 ? 'AM' : 'PM';
+        const formattedTime = (hoursUTC % 12 || 12).toString().padStart(2, '0') + ':' + minutesUTC.toString().padStart(2, '0') + ' ' + period;
+        return formattedTime;
     })
 
     timeSlots.innerHTML = "";
