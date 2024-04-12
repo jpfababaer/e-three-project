@@ -1,12 +1,12 @@
 <header class="header">
   <% if user_signed_in? %>
-  <%= link_to "3E Fitness", bookings_path, class: "main-nav-link"%>
+    <%= link_to "3E Fitness", bookings_path, class: "main-nav-link" %>
   <% else %>
-  <h1 class="main-nav-link" style="color: #fff;">
-    3E Fitness
-  </h1>
+    <h1 class="main-nav-link" style="color: #fff">
+      3E Fitness
+    </h1>
   <% end%>
-  
+
   <nav>
     <ul class="main-nav-list">
       <% if user_signed_in? %>

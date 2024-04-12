@@ -17,7 +17,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="rubik-font">
     <% if notice.present? %>
       <%= render partial: "shared/flash", locals: { message: notice, css_class: "success" } %>
     <% end %>

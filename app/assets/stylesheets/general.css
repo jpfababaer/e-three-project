@@ -18,6 +18,10 @@ White: #fff;
   box-sizing: border-box;
 }
 
+.rubik-font {
+  font-family: "Rubik", sans-serif;
+}
+
 .landing {
   font-family: "Rubik", sans-serif;
   line-height: 1;
@@ -96,4 +100,13 @@ White: #fff;
 
 strong {
   font-weight: 500;
+}
+
+.btn-success {
+  background-color: #428a53;
+}
+
+.three-e-card-body {
+  border: 2px solid #000;
+  border-radius: 50px;
 }
