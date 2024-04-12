@@ -1,9 +1,16 @@
 <%= form_with(model: booking, method: "post", id: "booking-form") do |form| %>
   <%= form.hidden_field :client_id, value: current_user.id %>
-  <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, id: "trainer-select" %>
-  <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, id: "start-time-select" %>
   <%= form.hidden_field :ended_at, value: @date %>
-  <%= form.submit "Submit" %>
+  <div>
+    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, id: "trainer-select" %>
+  </div>
+  <div>
+
+    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, id: "start-time-select" %>
+  </div>
+  <div>
+    <%= form.submit "Submit" %>
+  </div>
 <% end %>
 
 <hr>
@@ -29,6 +36,9 @@
     })
 
     timeSlots.innerHTML = "";
+
+    const prompt = new Option("Select Start Time", "");
+    timeSlots.add(prompt);
 
     options.forEach(optionText => {
       const option = new Option(optionText, optionText);
