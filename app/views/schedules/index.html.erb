@@ -1,15 +1,21 @@
 <div class="container mt-4">
   <div>
-    <h1>My Schedule: </h1>
+    <h1>My Schedule</h1>
     <%= link_to "New Schedule", new_schedule_path, class: "btn btn-success" %>
   </div>
 
-  <div class="row row-cols-4 mt-4 gap-3">
+  <div class="row mt-4 justify-content-center">
     <% current_user.trainer_schedules.each do |schedule| %>
-      <div class="card p-3">
-        <%= render schedule %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body text-center three-e-card-body">
+            <%= render schedule %>
+            <p>
+              <%= link_to "More details", schedule, class: "btn btn-secondary btn-sm" %>
+            </p>
+          </div>
+        </div>
       </div>
     <% end %>
   </div>
 </div>
-

@@ -80,7 +80,7 @@ White: #fff;
   display: block;
   font-size: 1.6rem;
   font-weight: 500;
-  color: #428a53; 
+  color: #428a53;
   text-transform: uppercase;
   margin-bottom: 1.6rem;
   letter-spacing: 0.75px;
@@ -102,11 +102,21 @@ strong {
   font-weight: 500;
 }
 
+/* Bootstrap */
 .btn-success {
   background-color: #428a53;
 }
 
+.btn-seconary {
+  background-color: #37383d;
+}
+
 .three-e-card-body {
-  border: 2px solid #000;
-  border-radius: 50px;
+  border-radius: 30px;
+  font-size: 18px; 
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
 }
