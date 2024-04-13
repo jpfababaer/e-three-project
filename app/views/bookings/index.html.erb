@@ -1,27 +1,35 @@
 <div class="container mt-5 text-center">
   <h1>Calendar: </h1>
-  <%= month_calendar(events: @bookings, attribute: :started_at) do |date, booking| %>
+  <%= month_calendar events: @bookings, attribute: :started_at do |date, bookings| %>
     <div class="day">
       <% if date >= Date.today %>
-        <%= link_to date.day, new_booking_path(date: date) %>
+        <%= link_to date.day, new_booking_path(date: date), class: "date-link" %>
       <% else %>
-        <%= date.day %>
+        <span class="date-non-link"><%= date.day %></span>
+      <% end %>
+      <% bookings.each do |booking| %>
+        <div class="card mt-2">
+          <div class="card-body">
+            <% if current_user.role == "clients" %>
+              <h5 class="card-title">
+                <%= link_to "Personal Training", booking %>
+              </h5>
+              <h6 class="card-subtitle mb-2">
+                with <%= booking.trainer.first_name %>
+              </h6>
+            <% else %>
+              <h5 class="card-title">
+                <%= link_to "Client Session", booking %>
+              </h5>
+              <h6>
+                with <%= booking.client.first_name %>
+              </h6>
+            <% end %>
+            <p class="card-text">Start time: <%= booking.started_at.strftime("%I:%M %p") %></p>
+            <p class="card-text">End time: <%= booking.ended_at.strftime("%I:%M %p") %></p>
+          </div>
+        </div>
       <% end %>
     </div>
-
-    <% booking.each do |booking| %>
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">
-            <%= link_to booking.trainer.image, booking %>
-          </h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">
-            with <%= booking.trainer.first_name %>
-          </h6>
-          <p class="card-text">Start time: <%= booking.started_at.strftime("%I:%M %p") %></p>
-          <p class="card-text">End time: <%= booking.ended_at.strftime("%I:%M %p") %></p>
-        </div>
-      </div>
-    <% end %>
   <% end %>
 </div>

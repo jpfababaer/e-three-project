@@ -1,26 +1,25 @@
 <%= form_with(model: booking, method: "post", id: "booking-form") do |form| %>
   <%= form.hidden_field :client_id, value: current_user.id %>
   <%= form.hidden_field :ended_at, value: @date %>
-  <div>
-    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, id: "trainer-select" %>
+  <div class="form-group">
+    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, { class: "form-control", id: "trainer-select" } %>
   </div>
-  <div>
-
-    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, id: "start-time-select" %>
+  <div class="form-group mt-3">
+    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, { class: "form-control", id: "start-time-select" } %>
   </div>
-  <div>
-    <%= form.submit "Submit" %>
+  <div class="form-group mt-3">
+    <%= form.submit "Submit", class: "btn btn-success d-block mx-auto" %>
   </div>
 <% end %>
 
-<hr>
-
 <script>
   var hourlySlots = <%= raw @hourly_slots.to_json %>;
+  var selectedDate = <%= raw @date.to_json %>
 
   function populateTimeSlots() {
     const trainerSelect = document.getElementById("trainer-select").value;
     const timeSlots = document.getElementById("start-time-select");
+
 
     const filteredData = hourlySlots.filter(function(hash) {
       return hash.trainer_id.toString() === trainerSelect;
@@ -31,8 +30,11 @@
         const hoursUTC = startedAt.getUTCHours();
         const minutesUTC = startedAt.getUTCMinutes();
         const period = hoursUTC < 12 ? 'AM' : 'PM';
-        const formattedTime = (hoursUTC % 12 || 12).toString().padStart(2, '0') + ':' + minutesUTC.toString().padStart(2, '0') + ' ' + period;
-        return formattedTime;
+        const formattedTime = `${(hoursUTC % 12 || 12).toString().padStart(2, '0')} : ${minutesUTC.toString().padStart(2, '0')} ${period}`;
+        return {
+          value: startedAt.toISOString(),
+          text: formattedTime
+        };
     })
 
     timeSlots.innerHTML = "";
@@ -40,8 +42,8 @@
     const prompt = new Option("Select Start Time", "");
     timeSlots.add(prompt);
 
-    options.forEach(optionText => {
-      const option = new Option(optionText, optionText);
+    options.forEach(optionData => {
+      const option = new Option(optionData.text, optionData.value);
       timeSlots.add(option);
     });
   }
