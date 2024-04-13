@@ -74,10 +74,8 @@ class BookingsController < ApplicationController
 
   def trainer_slots
     @date = DateTime.parse(params[:date])
-    # trainer_ids = Schedule.where(day_of_week: @date.strftime("%A")).pluck(:trainer_id).uniq
-    @trainers_array = User.personal_trainers.joins(:trainer_schedules).where(schedules: { day_of_week: @date.strftime("%A") }).uniq #Array of trainer instances
+    @trainers_array = User.personal_trainers.joins(:trainer_schedules).where(schedules: { day_of_week: @date.strftime("%A") }).uniq 
 
-    #Hashes within an Array to store each trainer's available slots: [ {Trainer 1 slots}, {Trainer 2}, etc. ]
     @hourly_slots = []
 
     #Access trainer schedule for the specific day:

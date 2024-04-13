@@ -1,7 +1,15 @@
-<h1>60 Minute PT Session: </h1>
-
-<%= render "form", booking: @booking %>
-
 <div>
-  <%= link_to "Back to bookings", bookings_path %>
+  <div>
+
+  <h1>60 Minute PT Session</h1>
+  </div>
+
+  <div>
+    Date: <%= @date.strftime("%B %d, %Y") %>
+  </div>
+
+  <div>
+    <%= render "form", booking: @booking %>
+    <%= link_to "Back to bookings", bookings_path %>
+  </div>
 </div>

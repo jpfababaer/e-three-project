@@ -17,10 +17,12 @@
 
 <script>
   var hourlySlots = <%= raw @hourly_slots.to_json %>;
+  var selectedDate = <%= raw @date.to_json %>
 
   function populateTimeSlots() {
     const trainerSelect = document.getElementById("trainer-select").value;
     const timeSlots = document.getElementById("start-time-select");
+
 
     const filteredData = hourlySlots.filter(function(hash) {
       return hash.trainer_id.toString() === trainerSelect;
@@ -31,8 +33,11 @@
         const hoursUTC = startedAt.getUTCHours();
         const minutesUTC = startedAt.getUTCMinutes();
         const period = hoursUTC < 12 ? 'AM' : 'PM';
-        const formattedTime = (hoursUTC % 12 || 12).toString().padStart(2, '0') + ':' + minutesUTC.toString().padStart(2, '0') + ' ' + period;
-        return formattedTime;
+        const formattedTime = `${(hoursUTC % 12 || 12).toString().padStart(2, '0')} : ${minutesUTC.toString().padStart(2, '0')} ${period}`;
+        return {
+          value: startedAt.toISOString(),
+          text: formattedTime
+        };
     })
 
     timeSlots.innerHTML = "";
@@ -40,8 +45,8 @@
     const prompt = new Option("Select Start Time", "");
     timeSlots.add(prompt);
 
-    options.forEach(optionText => {
-      const option = new Option(optionText, optionText);
+    options.forEach(optionData => {
+      const option = new Option(optionData.text, optionData.value);
       timeSlots.add(option);
     });
   }
