@@ -1,9 +1,16 @@
-<h1>New schedule</h1>
-
-<%= render "form", schedule: @schedule, availabilities: @availabilities %>
-
-<br>
-
-<div>
-  <%= link_to "Back to schedules", schedules_path %>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card three-e-card-body three-e-card-custom shadow-md"> 
+        <div class="card-body">
+          <h1 class="text-center">Working hours</h1>
+          <%= render "form", schedule: @schedule, availabilities: @availabilities %>
+          <div class="text-center mt-3">
+            <%= link_to "Back to schedules", schedules_path, class: "btn btn-secondary btn-sm mr-2" %> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

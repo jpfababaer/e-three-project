@@ -1,16 +1,21 @@
-<div id="schedules">
-  <h1>My Schedule: </h1>
-
+<div class="container mt-4">
   <div>
-    <%= link_to "Create Schedule", new_schedule_path, class: "btn btn-warning" %>
+    <h1>My Schedule</h1>
+    <%= link_to "New Schedule", new_schedule_path, class: "btn btn-success" %>
   </div>
 
-  <hr>
-  <% current_user.trainer_schedules.each do |schedule| %>
-    <%= render schedule %>
-    <p>
-      <%= link_to "Show this schedule", schedule %>
-    </p>
-    <hr>
-  <% end %>
+  <div class="row mt-4 justify-content-center">
+    <% current_user.trainer_schedules.each do |schedule| %>
+      <div class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body text-center three-e-card-body">
+            <%= render schedule %>
+            <p>
+              <%= link_to "More details", schedule, class: "btn btn-secondary btn-sm" %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
