@@ -1,15 +1,16 @@
-<div>
+<div class="container d-flex justify-content-center align-items-start vh-100 mt-custom">
   <div>
+    <div class="text-center">
+      <h1>60 Minute PT Session</h1>
+    </div>
 
-  <h1>60 Minute PT Session</h1>
-  </div>
+    <div>
+      <p class="text-center">Date: <%= @date.strftime("%B %d, %Y") %></p>
+    </div>
 
-  <div>
-    Date: <%= @date.strftime("%B %d, %Y") %>
-  </div>
-
-  <div>
-    <%= render "form", booking: @booking %>
-    <%= link_to "Back to bookings", bookings_path %>
+    <div>
+      <%= render "form", booking: @booking %>
+      <a href="<%= bookings_path %>" class="btn btn-secondary d-block mx-auto mt-3">Back to bookings</a>
+    </div>
   </div>
 </div>

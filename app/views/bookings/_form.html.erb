@@ -1,19 +1,16 @@
 <%= form_with(model: booking, method: "post", id: "booking-form") do |form| %>
   <%= form.hidden_field :client_id, value: current_user.id %>
   <%= form.hidden_field :ended_at, value: @date %>
-  <div>
-    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, id: "trainer-select" %>
+  <div class="form-group">
+    <%= form.collection_select :trainer_id, @trainers_array, :id, :first_name, { prompt: "Select Trainer" }, { class: "form-control", id: "trainer-select" } %>
   </div>
-  <div>
-
-    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, id: "start-time-select" %>
+  <div class="form-group mt-3">
+    <%= form.select :started_at, options_for_select([]), { prompt: "Select Start Time" }, { class: "form-control", id: "start-time-select" } %>
   </div>
-  <div>
-    <%= form.submit "Submit" %>
+  <div class="form-group mt-3">
+    <%= form.submit "Submit", class: "btn btn-success d-block mx-auto" %>
   </div>
 <% end %>
-
-<hr>
 
 <script>
   var hourlySlots = <%= raw @hourly_slots.to_json %>;
