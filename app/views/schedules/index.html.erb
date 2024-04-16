@@ -5,13 +5,14 @@
   </div>
 
   <div class="row mt-4 justify-content-center">
-    <% current_user.trainer_schedules.each do |schedule| %>
+    <% current_user.trainer_schedules.each do |schedule| %> 
       <div class="col-md-4 mb-4">
         <div class="card shadow-sm">
           <div class="card-body text-center three-e-card-body">
             <%= render schedule %>
             <p>
-              <%= link_to "More details", schedule, class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Update Schedule", edit_schedule_path(schedule), class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Delete Schedule", schedule_path(schedule), method: :delete, data: { confirm: "Are you sure you want to delete this schedule?" }, class: "btn btn-danger btn-sm" %>
             </p>
           </div>
         </div>

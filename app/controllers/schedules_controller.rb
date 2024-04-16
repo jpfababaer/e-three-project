@@ -1,6 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: %i[ show edit update destroy ]
-  before_action :availabilities, only: %i[ new ]
+  before_action :availabilities, only: %i[ new edit]
 
   # GET /schedules or /schedules.json
   def index
@@ -19,6 +19,7 @@ class SchedulesController < ApplicationController
 
   # GET /schedules/1/edit
   def edit
+    @availabilities = availabilities
   end
 
   # POST /schedules or /schedules.json
