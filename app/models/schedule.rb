@@ -22,7 +22,7 @@
 class Schedule < ApplicationRecord
   belongs_to :trainer, class_name: "User"
 
-  validates :start_time, presence: true 
-  validates :end_time, presence: true 
-  validates :day_of_week, uniqueness: {scope: :trainer_id, message: "- you already scheduled for that day."} 
+  validates :start_time, presence: true
+  validates :end_time, presence: true
+  validates :day_of_week, presence: true
 end
