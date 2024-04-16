@@ -76,9 +76,17 @@ class BookingsController < ApplicationController
     bookings = Booking.all
     current_bookings = []
 
-    bookings.each do |booking|
-      if booking.trainer_id == current_user.id
-        current_bookings << booking
+    if current_user.role == "personal_trainers"
+      bookings.each do |booking|
+        if booking.trainer_id == current_user.id
+          current_bookings << booking
+        end
+      end
+    elsif current_user.role == "clients"
+      bookings.each do |booking|
+        if booking.client_id == current_user.id
+          current_bookings << booking
+        end
       end
     end
     current_bookings
