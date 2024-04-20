@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: %i[ show edit update destroy ]
-  before_action :trainer_slots, only: %i[ new ]
+  before_action :trainer_slots, only: %i[ new edit ]
 
   # GET /bookings or /bookings.json
   def index
@@ -41,7 +41,9 @@ class BookingsController < ApplicationController
   def update
     respond_to do |format|
       if @booking.update(booking_params)
-        format.html { redirect_to booking_url(@booking), notice: "Booking was successfully updated." }
+        @booking.ended_at = @booking.started_at + 1.hour
+        @booking.save
+        format.html { redirect_to bookings_path, notice: "Booking was successfully updated." }
         format.json { render :show, status: :ok, location: @booking }
       else
         format.html { render :edit, status: :unprocessable_entity }

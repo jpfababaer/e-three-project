@@ -1,4 +1,4 @@
-<%= form_with(model: booking, method: "post", id: "booking-form") do |form| %>
+<%= form_with(model: booking, id: "booking-form") do |form| %>
   <%= form.hidden_field :client_id, value: current_user.id %>
   <%= form.hidden_field :ended_at, value: @date %>
   <div class="form-group">
