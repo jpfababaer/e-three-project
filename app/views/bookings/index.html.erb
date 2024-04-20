@@ -12,14 +12,14 @@
           <div class="card-body">
             <% if current_user.role == "clients" %>
               <h5 class="card-title">
-                <%= link_to "Personal Training", booking %>
+                <p>Personal Training</p>
               </h5>
               <h6 class="card-subtitle mb-2">
                 with <%= booking.trainer.first_name %>
               </h6>
             <% else %>
               <h5 class="card-title">
-                <%= link_to "Client Session", booking %>
+                <p>Client Session</p>
               </h5>
               <h6>
                 with <%= booking.client.first_name %>
@@ -27,6 +27,18 @@
             <% end %>
             <p class="card-text">Start time: <%= booking.started_at.strftime("%I:%M %p") %></p>
             <p class="card-text">End time: <%= booking.ended_at.strftime("%I:%M %p") %></p>
+            <div>
+              <div class="d-inline-block mr-custom">
+                <%= link_to edit_booking_path(booking, date: date) do %>
+                  <i class="fa-solid fa-pen-to-square"></i>
+                <% end %>
+              </div>
+              <div class="d-inline-block">
+                <%= button_to booking, method: :delete, class: "btn btn-link p-0 border-0 text-danger" do %>
+                  <i class="fa-solid fa-trash-can"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>

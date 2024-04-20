@@ -141,3 +141,7 @@ strong {
 .mt-custom {
   margin-top: 100px;
 }
+
+.mr-custom {
+  margin-right: 10px;
+}
