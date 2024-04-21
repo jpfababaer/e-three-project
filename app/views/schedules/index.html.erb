@@ -5,7 +5,7 @@
   </div>
 
   <div class="row mt-4 justify-content-center">
-    <% current_user.trainer_schedules.each do |schedule| %>
+    <% @schedules.each do |schedule| %>
       <div class="col-md-4 mb-4">
         <div class="card shadow-sm">
           <div class="card-body text-center three-e-card-body">
@@ -14,7 +14,7 @@
               <%= link_to "Update Schedule", edit_schedule_path(schedule), class: "btn btn-secondary btn-sm" %>
             </p>
             <p>
-              <%= button_to "Delete Schedule", schedule, method: :delete, class: "btn btn-danger btn-sm" %>
+              <%= button_to "Delete Schedule", schedule, method: :delete, class: "btn btn-danger btn-sm delete-schedule-btn"%>
             </p>
           </div>
         </div>

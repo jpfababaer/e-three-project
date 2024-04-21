@@ -4,7 +4,8 @@ class SchedulesController < ApplicationController
 
   # GET /schedules or /schedules.json
   def index
-    @schedules = Schedule.all
+    custom_order = { "Sunday" => 0, "Monday" => 1, "Tuesday" => 2, "Wednesday" => 3, "Thursday" => 4, "Friday" => 5, "Saturday" => 6 }
+    @schedules = current_user.trainer_schedules.sort_by { |schedule| custom_order[schedule.day_of_week] }
   end
 
   # GET /schedules/1 or /schedules/1.json
