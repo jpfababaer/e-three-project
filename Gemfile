@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.2.1"
 
+gem "simple_form"
 gem "simple_calendar"
 gem "ice_cube"
 gem "json"
@@ -85,6 +86,7 @@ gem "faker"
 gem "htmlbeautifier"
 gem "http"
 gem "table_print"
+
 
 group :development do
   gem "annotate"
