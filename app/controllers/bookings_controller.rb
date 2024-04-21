@@ -110,7 +110,9 @@ class BookingsController < ApplicationController
       current_time = start_time
       while current_time < end_time
         next_hour_time = current_time + 1.hour
-        @hourly_slots << { "trainer_id" => trainer.id, "started_at" => current_time, "ended_at" => next_hour_time }
+        if Booking.where(trainer_id: trainer.id, started_at: current_time).empty?
+          @hourly_slots << { "trainer_id" => trainer.id, "started_at" => current_time, "ended_at" => next_hour_time }
+        end
         current_time = next_hour_time
       end
     end
