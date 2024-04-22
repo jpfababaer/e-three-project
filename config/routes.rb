@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   resources :bookings, except: [:show]
   resources :schedules, except: [:show]
-  devise_for :users, controllers: { sessions: 'sessions' }
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
 end
