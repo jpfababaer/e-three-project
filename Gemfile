@@ -7,6 +7,7 @@ gem "simple_form"
 gem "simple_calendar"
 gem "ice_cube"
 gem "json"
+gem "pundit"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"

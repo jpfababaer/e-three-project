@@ -6,6 +6,7 @@ class SchedulesController < ApplicationController
   def index
     custom_order = { "Sunday" => 0, "Monday" => 1, "Tuesday" => 2, "Wednesday" => 3, "Thursday" => 4, "Friday" => 5, "Saturday" => 6 }
     @schedules = current_user.trainer_schedules.sort_by { |schedule| custom_order[schedule.day_of_week] }
+    authorize Schedule
   end
 
   # GET /schedules/1 or /schedules/1.json
@@ -16,16 +17,19 @@ class SchedulesController < ApplicationController
   def new
     @schedule = Schedule.new
     @availabilities = availabilities
+    authorize @schedule
   end
 
   # GET /schedules/1/edit
   def edit
     @availabilities = availabilities
+    authorize @schedule
   end
 
   # POST /schedules or /schedules.json
   def create
     @schedule = Schedule.new(schedule_params)
+    authorize @schedule
 
     respond_to do |format|
       if @schedule.save
@@ -40,6 +44,7 @@ class SchedulesController < ApplicationController
 
   # PATCH/PUT /schedules/1 or /schedules/1.json
   def update
+    authorize @schedule
     respond_to do |format|
       if @schedule.update(schedule_params)
         format.html { redirect_to schedules_path, notice: "Schedule was successfully updated." }
@@ -53,6 +58,7 @@ class SchedulesController < ApplicationController
 
   # DELETE /schedules/1 or /schedules/1.json
   def destroy
+    authorize @schedule
     @schedule.destroy
 
     respond_to do |format|

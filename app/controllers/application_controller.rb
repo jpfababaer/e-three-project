@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   skip_before_action :authenticate_user!, only: [:landing]
   before_action :additional_parameters, if: :devise_controller?
 
+  include Pundit
+
   protected
 
   def additional_parameters
