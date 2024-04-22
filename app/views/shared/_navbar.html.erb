@@ -2,9 +2,7 @@
   <% if user_signed_in? %>
     <%= link_to "3E Fitness", bookings_path, class: "main-nav-link" %>
   <% else %>
-    <h1 class="main-nav-logo">
-      3E Fitness
-    </h1>
+    <%= link_to "3E Fitness", root_path, class: "main-nav-link" %>
   <% end%>
 
   <nav>

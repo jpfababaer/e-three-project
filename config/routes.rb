@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-
   root "homes#landing"
 
-  resources :bookings
-  resources :schedules
-  devise_for :users
-
+  resources :bookings, except: [:show]
+  resources :schedules, except: [:show]
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
 end
