@@ -60,9 +60,24 @@
   margin: 0 auto;
   padding: 0 3.2rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr; 
   gap: 9.6rem;
   align-items: center;
+}
+
+.hero-img-box {
+  margin-bottom: 0;
+}
+
+.hero-img {
+  width: 100%; 
+  height: auto;
+  border-radius: 20px;
+}
+
+.section-hero {
+  display: flex; 
+  align-items: center; 
 }
 
 .hero-description {
