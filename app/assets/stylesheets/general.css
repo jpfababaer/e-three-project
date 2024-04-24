@@ -147,9 +147,12 @@ strong {
 }
 
 .flash-messages {
-  position: relative;
-  margin-top: 20px;
-  width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  font-size: 18px;
 }
