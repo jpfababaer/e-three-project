@@ -7,9 +7,9 @@
             Elevate how you manage your fitness experience!
           </h1>
           <p class="hero-description">
-            Streamline your journey to a healthier you with 3E Fitness. Effortlessly book personal training sessions with our esteemed team members in just a few clicks, optimizing your time and getting you to the action.
+            3E Fitness revolutionizes the personal training booking process by offering a seamless, user-friendly interface that simplifies scheduling for both trainers and members. 3E can effortlessly oversee and manage bookings, optimizing their workflow and ensuring efficient utilization of resources.
           </p>
-          <%= link_to 'Start training now!', new_user_registration_path, class: "main-nav-link nav-cta margin-right-sm" %>
+          <%= link_to 'Try it now!', new_user_registration_path, class: "main-nav-link nav-cta margin-right-sm" %>
         </div>
         <div class="hero-img-box">
         <img
@@ -101,13 +101,143 @@
       </div>
     </section>
 
+    <hr>
+
+    <section class="mb-5">
+        <div class="container center-text pt-5">
+          <span class="subheading">How it works</span>
+          <h2 class="heading-secondary">
+            Personal training in 3 simple steps
+          </h2>
+        </div>
+
+        <div class="container grid grid--2-cols grid--center-v">
+          <div class="step-text-box">
+            <p class="step-number">01</p>
+            <h3 class="heading-tertiary">
+              Trainers set their availability
+            </h3>
+            <p class="step-description">
+              Give your trainers the power to set up their own work availability. Through 3E, your trainers can easily determine when members can book them for a personal training session.
+            </p>
+          </div>
+          <div class="step-img-box">
+            <img
+              src="/assets/Schedule.JPG"
+              class="step-img"
+              alt="work schedule list"
+            />
+          </div>
+
+          <div class="step-img-box">
+            <img
+              src="/assets/Booking.jpg"
+              class="step-img"
+              alt="member booking form"
+            />
+          </div>
+          <div class="step-text-box">
+            <p class="step-number">02</p>
+            <h3 class="heading-tertiary">Members book their sessions</h3>
+            <p class="step-description">
+              Once your trainers have set up their work availability, your members can navigate the calendar to book for their services. Based on the date, members can select a specific trainer and book their available time slots.
+            </p>
+          </div>
+
+          <div class="step-text-box">
+            <p class="step-number">03</p>
+            <h3 class="heading-tertiary">Check your calendar for reminders</h3>
+            <p class="step-description">
+              Give your trainers and members the ability to visualize their fitness commitments. Use the calendar to remind your users when its time to take action and work out!
+            </p>
+          </div>
+          <div class="step-img-box">
+            <img
+              src="/assets/Calendar.jpg"
+              class="step-img"
+              alt="member booking calendar"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <div class="testimonials-container">
+        <div class="center-text">
+          <span class="subheading">Testimonials</span>
+          <h2 class="heading-secondary">Hear from our loyal clients</h2>
+        </div>
+
+        <div class="section-testimonials">
+          <div class="testimonials">
+            <figure class="testimonial">
+              <img
+                class="testimonial-img"
+                alt="image of gym client, FXB"
+                src="assets/FXB.jpg"
+              />
+              <blockquote class="testimonial-text">
+                Reliable and manageable. My members and personal trainers have an easier time with their bookings!
+              </blockquote>
+              <p class="testimonial-name">&mdash; Fitness XBlink</p>
+            </figure>
+
+            <figure class="testimonial">
+              <img
+                class="testimonial-img"
+                alt="photo of personal trainer Paul Cousins"
+                src="assets/Headshot1 (2).jpg"
+              />
+              <blockquote class="testimonial-text">
+                It's so easy to check up on my work schedule for the month with 3E! It does not disappoint.
+              </blockquote>
+              <p class="testimonial-name">&mdash; Paul Cousins</p>
+            </figure>
+
+            <figure class="testimonial">
+              <img
+                class="testimonial-img"
+                alt="photo of a member Tanya King"
+                src="assets/Headshot2 (2).jpg"
+              />
+              <blockquote class="testimonial-text">
+                I really love the calendar layout. It makes it convenient to see who I have a personal training with.
+              </blockquote>
+              <p class="testimonial-name">&mdash; Tanya King</p>
+            </figure>
+
+            <figure class="testimonial">
+              <img
+                class="testimonial-img"
+                alt="photo of a member Katie Li"
+                src="assets/Headshot3 (2).jpg"
+              />
+              <blockquote class="testimonial-text">
+                It is so convenient to use 3E. Never been easier getting connected with the right personal trainer!
+              </blockquote>
+              <p class="testimonial-name">&mdash; Katie Li</p>
+            </figure>
+          </div>
+
+          <div>
+            <video class="video" controls>
+              <source src="/assets/ThreeEFitnessDemo.mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </section>
+    
     <section class="section section--sign-up">
       <div class="section-title">
         <h3 class="section-header">
           Effortless, efficient - exercise. Take control of your fitness now.
         </h3>
       </div>
-      <%= link_to 'Claim your first training session!', new_user_registration_path, class: "main-nav-link nav-cta" %>
+      <%= link_to 'Make exercising convenient now!', new_user_registration_path, class: "main-nav-link nav-cta" %>
     </section>
   </main>
 </body>

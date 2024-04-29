@@ -89,7 +89,7 @@
 
 /* TRAINERS SECTION */
 .section-trainers {
-  padding: 9.6rem 0;
+  padding: 4.6rem 0;
 }
 
 .trainer {
@@ -148,6 +148,72 @@
   align-items: center;
   gap: 1.6rem;
   color: #555;
+}
+
+/* HOW IT WORKS */
+
+.step-number {
+  font-size: 8.6rem;
+  font-weight: 600;
+  color: #ddd;
+  margin-bottom: 1.2rem;
+}
+
+.step-description {
+  font-size: 1.8rem;
+  line-height: 1.8;
+}
+
+.step-description {
+  font-size: 1.4rem;
+  line-height: 1.8;
+  color: #428a53;
+}
+
+.step-img {
+  width: 100%;
+}
+
+/* TESTIMONIALS SECTION */
+.section-testimonials {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+}
+
+.testimonials-container {
+  margin: 4.6rem;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 4.8rem;
+  column-gap: 8rem;
+}
+
+.testimonial-img {
+  width: 6.4rem;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+}
+
+.testimonial-text {
+  color:#428a53;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+}
+
+.testimonial-name {
+  font-size: 1.6rem;
+  color: #6f6f6f;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  padding-left: 100px;
+  padding-bottom: 65px;
 }
 
 /* CTA SECTION */
