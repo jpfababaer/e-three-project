@@ -2,11 +2,11 @@
 3E is a gym scheduling application designed to streamline the booking process for personal training. This application enables the gym establishment to empower its members and personal trainers by offering them extra convenience. 3E offers its users an easier time managing their fitness experience, leaving the hassle in the hustle to work out.
 
 # Table of Contents
--[Technologies Used](#technologies-used)
--[Main Features](#main-features)
--[Limitations](#limitations)
--[Contribution Guidelines](#contribution-guidelines)
--[FAQ](#faq)
+- [Technologies Used](#technologies-used)
+- [Main Features](#main-features)
+- [Limitations](#limitations)
+- [Contribution Guidelines](#contribution-guidelines)
+- [FAQ](#faqs)
 
 ## Technologies Used
 - Rails 7
@@ -66,8 +66,8 @@ Please adhere to the Ruby conventions when contributing. More information on it 
     - Use associations and methods within Models to adhere to the DRY principle. 
 
   - Branch Naming Conventions:
-  When creating a branch, please follow this naming convention:
-    - ```<name-issue#-feature>```(i.e. jp-11-landing-page)
+    - When creating a branch, please follow this naming convention:
+    - ```<name-issue#-feature>``` (i.e. jp-11-landing-page)
 
   - Version Control:
     - Pull frequently, push infrequently, commit frequently and in detail.
@@ -84,5 +84,3 @@ Please adhere to the Ruby conventions when contributing. More information on it 
 
 2. Bootstrap:
   - Most of the front-end facing portion of this application utilizes bootstrap. If you would like to know about its detailed usage, visit: [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
-
-
