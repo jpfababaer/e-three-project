@@ -28,7 +28,7 @@ https://gist.github.com/assets/100891759/1bdd74a9-3a47-4197-b542-a0bc9247dad4
 ### Member Bookings
 Members of the gym can go on their personalized calendar to book for their desired personal training session. From the calendar, they can select their intended date to see all the available personal trainers. Within the form, they can select the time slot best for their schedule based on the personal trainer selected. 
 
-https://gist.github.com/assets/100891759/b79118e1-b1e6-4b52-a73f-00be8650dc49
+![Booking Form](/app/assets/images/Booking.jpg)
 
 ### Calendar Reminders
 Both the personal trainers and the members have their own personalized calendars. These calendars contain the bookings (for members) and sessions (for trainers) that they have for a given month. This calendar is used to visualize and serve as a reminder for the fitness commitments a user may have. 
