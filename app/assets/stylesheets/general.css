@@ -27,6 +27,10 @@ a {
   color: #58806a;
 }
 
+hr {
+  color:#37383d;
+}
+
 .landing {
   font-family: "Rubik", sans-serif;
   line-height: 1;
@@ -51,8 +55,16 @@ a {
   margin-bottom: 9.6rem;
 }
 
+.grid--2-cols {
+  grid-template-columns: repeat(2, 1fr);
+}
+
 .grid--3-cols {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid--center-v {
+  align-items: center;
 }
 
 .heading-primary,
