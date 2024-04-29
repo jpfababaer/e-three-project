@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
-    @bookings = user_bookings
+    @bookings = Booking.for_user_role(current_user.role, current_user.id)
   end
 
   # GET /bookings/1 or /bookings/1.json
@@ -72,26 +72,6 @@ class BookingsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def booking_params
     params.require(:booking).permit(:client_id, :trainer_id, :started_at, :ended_at)
-  end
-
-  def user_bookings
-    bookings = Booking.all
-    current_bookings = []
-
-    if current_user.role == "personal_trainers"
-      bookings.each do |booking|
-        if booking.trainer_id == current_user.id
-          current_bookings << booking
-        end
-      end
-    elsif current_user.role == "clients"
-      bookings.each do |booking|
-        if booking.client_id == current_user.id
-          current_bookings << booking
-        end
-      end
-    end
-    current_bookings
   end
 
   def trainer_slots
