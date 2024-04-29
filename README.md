@@ -33,7 +33,7 @@ https://gist.github.com/assets/100891759/b79118e1-b1e6-4b52-a73f-00be8650dc49
 ### Calendar Reminders
 Both the personal trainers and the members have their own personalized calendars. These calendars contain the bookings (for members) and sessions (for trainers) that they have for a given month. This calendar is used to visualize and serve as a reminder for the fitness commitments a user may have. 
 
-https://gist.github.com/assets/100891759/cfbf24eb-0e35-42ec-a574-321f13af3d25
+![Calendar](https://gist.github.com/assets/100891759/cfbf24eb-0e35-42ec-a574-321f13af3d25)
 
 ## Limitations
 1. Currently, 3E Fitness only works with one personal service, personal training. The goal is to give the gym establishment the ability to accurately define each of the amenties offered.
