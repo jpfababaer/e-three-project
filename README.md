@@ -16,14 +16,14 @@
 - Firstdraft (for ERD)
 
 ### Entity Relationship Diagram
-https://gist.github.com/assets/100891759/d40088ee-a466-4890-87d8-14069c99d5fe
+![ERD](/app/assets/images/ERD.jpeg)
 
 ## Main Features
 
 ### Work Schedule Setup
 Personal trainers have the power to determine their own work schedules. By selecting the day, their start and end time, they take control of their own work flow. Defining these work schedules enables members to find the days and times they are available to potentially book for a personal training session. 
 
-https://gist.github.com/assets/100891759/1bdd74a9-3a47-4197-b542-a0bc9247dad4
+![Schedule List](/app/assets/images/Schedule.JPG)
 
 ### Member Bookings
 Members of the gym can go on their personalized calendar to book for their desired personal training session. From the calendar, they can select their intended date to see all the available personal trainers. Within the form, they can select the time slot best for their schedule based on the personal trainer selected. 
@@ -33,7 +33,7 @@ Members of the gym can go on their personalized calendar to book for their desir
 ### Calendar Reminders
 Both the personal trainers and the members have their own personalized calendars. These calendars contain the bookings (for members) and sessions (for trainers) that they have for a given month. This calendar is used to visualize and serve as a reminder for the fitness commitments a user may have. 
 
-![Calendar](https://gist.github.com/assets/100891759/cfbf24eb-0e35-42ec-a574-321f13af3d25)
+![Calendar UI](/app/assets/images/Calendar.jpg)
 
 ## Limitations
 1. Currently, 3E Fitness only works with one personal service, personal training. The goal is to give the gym establishment the ability to accurately define each of the amenties offered.
@@ -75,6 +75,7 @@ Please adhere to the Ruby conventions when contributing. More information on it 
 
   - Pull Requests:
     - When creating a pull request, provide detailed description of the change you have made and would like to be implemented. 
+    - Please comment and close the issue related to the pull request. (i.e. closes #number)
     - Any pull request made requires the approval of me. 
 
 ### FAQs
@@ -84,3 +85,6 @@ Please adhere to the Ruby conventions when contributing. More information on it 
 
 2. Bootstrap:
   - Most of the front-end facing portion of this application utilizes bootstrap. If you would like to know about its detailed usage, visit: [Bootstrap Docs](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+
+3. IceCube:
+  - To know more about handling recurring events, check out the IceCube documentation: [IceCube Docs](https://www.rubydoc.info/github/seejohnrun/ice_cube/IceCube). In this first iteration of 3E, this was helpful in setting up the sample data for visualization. 
