@@ -16,24 +16,24 @@
 - Firstdraft (for ERD)
 
 ### Entity Relationship Diagram
-![3E ERD Diagram](https://gist.github.com/assets/100891759/d40088ee-a466-4890-87d8-14069c99d5fe)
+https://gist.github.com/assets/100891759/d40088ee-a466-4890-87d8-14069c99d5fe
 
 ## Main Features
 
 ### Work Schedule Setup
 Personal trainers have the power to determine their own work schedules. By selecting the day, their start and end time, they take control of their own work flow. Defining these work schedules enables members to find the days and times they are available to potentially book for a personal training session. 
 
-![Image of Work Schedule List](/assets/Schedule.JPG)
+https://gist.github.com/assets/100891759/1bdd74a9-3a47-4197-b542-a0bc9247dad4
 
 ### Member Bookings
 Members of the gym can go on their personalized calendar to book for their desired personal training session. From the calendar, they can select their intended date to see all the available personal trainers. Within the form, they can select the time slot best for their schedule based on the personal trainer selected. 
 
-![Image of Booking Form](/assets/Booking.jpg)
+https://gist.github.com/assets/100891759/b79118e1-b1e6-4b52-a73f-00be8650dc49
 
 ### Calendar Reminders
 Both the personal trainers and the members have their own personalized calendars. These calendars contain the bookings (for members) and sessions (for trainers) that they have for a given month. This calendar is used to visualize and serve as a reminder for the fitness commitments a user may have. 
 
-![Image of Personalized Calendar](/assets/Calendar.jpg)
+https://gist.github.com/assets/100891759/cfbf24eb-0e35-42ec-a574-321f13af3d25
 
 ## Limitations
 1. Currently, 3E Fitness only works with one personal service, personal training. The goal is to give the gym establishment the ability to accurately define each of the amenties offered.
