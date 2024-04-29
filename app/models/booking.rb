@@ -21,9 +21,20 @@
 #  trainer_id  (trainer_id => users.id)
 #
 class Booking < ApplicationRecord
-  belongs_to :client, class_name: "User", counter_cache: true 
-  belongs_to :trainer, class_name: "User", counter_cache: true 
+  belongs_to :client, class_name: "User", counter_cache: true
+  belongs_to :trainer, class_name: "User", counter_cache: true
 
-  validates :started_at, presence: true 
-  validates :ended_at, presence: true 
+  validates :started_at, presence: true
+  validates :ended_at, presence: true
+
+  #Scope for filtering bookings based on role:
+  scope :for_user_role, ->(user_role, user_id) {
+    if user_role == "personal_trainers"
+      where(trainer_id: user_id)
+    elsif user_role == "clients"
+      where(client_id: user_id)
+    else
+      none
+    end
+  }
 end

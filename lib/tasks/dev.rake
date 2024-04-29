@@ -63,7 +63,7 @@ task({ :sample_data => :environment }) do
     end_time = start_time + 11.hours
 
     schedule = IceCube::Schedule.new(start_time.to_time, end_time: end_time.to_time)
-    rule = IceCube::Rule.weekly.day(day_of_week.downcase.to_sym).count(3)
+    rule = IceCube::Rule.weekly.day(day_of_week.downcase.to_sym).count(1)
     schedule.add_recurrence_rule(rule)
     occurrences = schedule.all_occurrences
 
