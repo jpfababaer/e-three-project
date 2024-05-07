@@ -1,3 +1,4 @@
+#could this live in schedules?
 class AvailabilityService
   def self.availabilities
     opening_hour = 5
