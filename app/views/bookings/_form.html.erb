@@ -11,7 +11,7 @@
     <%= form.submit "Submit", class: "btn btn-success d-block mx-auto" %>
   </div>
 <% end %>
-
+<%# consider refactoring this so you don't have to load all the slots%>
 <script>
   var hourlySlots = <%= raw @hourly_slots.to_json %>;
   var selectedDate = <%= raw @date.to_json %>

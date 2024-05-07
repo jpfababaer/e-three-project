@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <%= render "shared/cdn_assets" %>
+    <%# you don't need the general and style link, they will be added to application.css%>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "general", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "style", "data-turbo-track": "reload" %>
@@ -19,6 +20,8 @@
 
   <body>
     <%= render "shared/navbar" %>
+  <%# you already have one %>
+  <%# could be a partial%>
     <% flash.each do |key, value| %>
       <div class="flash-messages">
         <%= value %>

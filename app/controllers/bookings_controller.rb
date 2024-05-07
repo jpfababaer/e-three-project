@@ -4,6 +4,8 @@ class BookingsController < ApplicationController
 
   # GET /bookings or /bookings.json
   def index
+    # # potential refactor
+    # @bookings = Booking.for_user(current_user)
     @bookings = Booking.for_user_role(current_user.role, current_user.id)
   end
 

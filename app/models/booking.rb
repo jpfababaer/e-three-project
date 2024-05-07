@@ -37,4 +37,6 @@ class Booking < ApplicationRecord
       none
     end
   }
+  # potential refactor
+  # scope :for_user, ->(user) { where(trainer_id: user.id).or(where(client_id: user.id))}
 end
